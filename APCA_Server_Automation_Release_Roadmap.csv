@@ -1,0 +1,10 @@
+Version,Milestone,Status,Description
+v1.0,Initial Automation Release,Complete,"Includes core scripts for mod download, sanitization, LGSM config updates, and Swifty deployment."
+v1.1,CDLC Compatibility,Complete,Adds support for CDLCs in mods.json and config handling.
+v1.2,Log Rotation & Diff Tool,Planned,Introduce logging summary and mod consistency checker.
+v1.3,Interactive CLI Menu,Planned,Menu-based system to manage mod operations via terminal.
+v2.0,Discord Bot Integration,Planned,Trigger deployments and mod updates via Discord commands.
+v2.1,Web Dashboard,Planned,"Web UI to manage mod lists, trigger updates, and view logs."
+v3.0,Automated Updates + Rollback,Planned,"Watch mod changes, auto-restart server, support full backups."
+v3.1,CDN Swifty Sync,Planned,"Cloud deployment of mods via S3, Cloudflare R2, or other CDNs."
+v4.0,Community Presets + Tagging,Planned,"Upload/download modpacks, use tagging and ratings in UI."
