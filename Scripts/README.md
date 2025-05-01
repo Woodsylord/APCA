@@ -10,6 +10,7 @@ This guide describes how to use the Arma 3 automation tools on a Linux server us
 - `update_lgsm_config.sh` - Updates the LGSM server config with current mods.
 - `deploy_swifty.sh` - Publishes the modset to Swifty for client syncing.
 - `mods.json` - Define your list of Steam mods here.
+- `run_all.sh` - An orchestrator script that runs everything - Still in test.
 
 ## Setup Instructions
 
