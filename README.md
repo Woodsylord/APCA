@@ -54,3 +54,4 @@ MIT License
 ## Contributing
 
 Pull requests welcome. Please fork the project and submit a merge request to the `dev` branch.
+

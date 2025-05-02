@@ -1,7 +1,11 @@
 
-# APCA Server Automation - CDLC Test Branch Changelog
+# APCA Server Automation Changelog
 
-## Branch: APCA_Automation_CDLC_Test
+## Branch: APCA_Server_Automation
+
+# Changelog
+
+## [v1.0] - 2025-05-01
 
 ### New Features
 
@@ -34,3 +38,24 @@ This branch is fully backward-compatible for Steam Workshop mods. CDLC support i
 ## Recommendation
 
 Use this branch if you plan to host missions requiring Arma 3 Creator DLCs. Otherwise, continue using the main automation branch for workshop-only deployments.
+
+## [v1.1] - 2025-05-02
+
+### Added
+- `mod_diff.py`: Compares declared vs installed mods, with optional deletion and log output.
+- `self_check.py`: Pre-deployment validation of disk space, directories, permissions, and SteamCMD.
+- `menu.sh`: Interactive `whiptail`-based menu to run all major automation tools.
+- `log_maintenance.py`: Compresses old logs, deletes aged archives, and generates summary reports.
+- `mod_dependency_check.py`: Scans for common mod dependency issues and outputs warnings.
+
+### Enhanced
+- `run_all.sh` now includes:
+  - Integrated self-check
+  - Automatic log maintenance
+  - Error handling and exit on failure
+- All scripts now generate logs in a unified `/logs` directory.
+
+### Documentation
+- README files added for each script: usage, examples, and integration notes.
+- Phase 2 Summary and Review exported as PDF.
+- All scripts packaged under `APCA_Server_Automation_v1.1.zip` for GitHub release.
