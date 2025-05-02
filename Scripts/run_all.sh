@@ -59,6 +59,21 @@ fi
 log "Full deployment process completed successfully!"
 
 
+
+log "Running mod difference check..."
+if ! python3 mod_diff.py >> "$LOG_FILE" 2>&1; then
+    log "Mod diff check failed. Please investigate."
+else
+    log "Mod diff check complete."
+fi
+
+log "Running dependency check..."
+if ! python3 mod_dependency_check.py >> "$LOG_FILE" 2>&1; then
+    log "Dependency check failed."
+else
+    log "Dependency check completed successfully."
+fi
+
 log "Running log maintenance..."
 if python3 log_maintenance.py >> "$LOG_FILE" 2>&1; then
     log "Log maintenance completed."
