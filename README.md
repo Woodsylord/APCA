@@ -35,18 +35,6 @@ bash update_lgsm_config.sh
 bash deploy_swifty.sh
 ```
 
-## File Structure
-
-- `scripts/` – Core scripts and mod manager tools
-- `logs/` – Log files generated from each run
-- `mods.json` – Your list of mods (core, optional, CDLC)
-- `README.md` – Usage guide
-- `README.pdf` – Printable guide
-- `CHANGELOG.md` – CDLC test branch updates
-- `APCA_Server_Automation_Roadmap.md` – Feature roadmap
-- `APCA_Server_Automation_Roadmap_Monday.xlsx/csv` – Import into Monday.com
-- `APCA_Server_Automation_Release_Roadmap.xlsx/csv` – Version tracking
-
 ## License
 
 MIT License
