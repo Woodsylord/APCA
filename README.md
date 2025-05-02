@@ -1,45 +1,58 @@
-# APCA Server Automation
+# APCA Server Automation Toolkit (v1.1)
 
-Automation framework for managing Arma 3 multiplayer server mods using SteamCMD, Swifty, and LGSM. Includes support for both Steam Workshop mods and Creator DLC (CDLC).
+This project provides a fully automated, modular, and extensible solution for managing mods on a Linux-based Arma 3 dedicated server.
 
-## Features
+## Contents
 
-- Download and install mods from SteamCMD
-- Rename and sanitize folders for Linux compatibility
-- Automatically update LGSM mod configuration
-- Deploy mods to HTTP with Swifty
-- Handle CDLC entries (e.g., `vn`, `gm`)
-- Modular scripts and logs
-- Markdown and PDF documentation
+### Core Automation Scripts
+- `download_mods.py`: Download mods from Steam, rename, extract keys, and move them to the proper location.
+- `tolower.sh`: Lowercase mod files/folders for Linux compatibility.
+- `update_lgsm_config.sh`: Append mod list to LGSM config.
+- `deploy_swifty.sh`: Publish mod folder structure to Swifty repo.
+- `run_all.sh`: Full automation orchestrator. Logs output to file.
 
-## Getting Started
+### Phase 2 Enhancements
+- `mod_diff.py`: Detect and optionally delete mods that don’t match the configuration.
+- `self_check.py`: Validate environment conditions before any automation.
+- `menu.sh`: Terminal-based UI to manage the server.
+- `log_maintenance.py`: Rotate/compress/delete logs and generate summaries.
+- `mod_dependency_check.py`: Warn about missing dependencies (e.g., ACE requires CBA_A3).
+
+## Usage
 
 ```bash
-# Extract and enter directory
-tar -xzvf APCA_Server_Automation.tar.gz
-cd APCA_Server_Automation/scripts
-
-# Configure your mods
-nano mods.json
-
-# Download mods
-python3 download_mods.py
-
-# Sanitize file/folder names
-bash tolower.sh
-
-# Update LGSM config
-bash update_lgsm_config.sh
-
-# Deploy to Swifty
-bash deploy_swifty.sh
+cd /home/arma3server/scripts
+bash run_all.sh        # Full automation pipeline
+python3 mod_diff.py    # Diff mod state vs config
+python3 self_check.py  # Pre-deployment checks
+python3 log_maintenance.py  # Log rotation + summary
+python3 mod_dependency_check.py  # Dependency checks
+bash menu.sh           # Interactive CLI menu
 ```
 
-## License
+## Configuration
 
-MIT License
+All mods are managed via a simple `mods.json`:
 
-## Contributing
+```json
+[
+  { "id": "463939057", "name": "ace", "type": "core" },
+  { "id": "751965892", "name": "ACRE2", "type": "core" },
+  { "id": "vn", "name": "vn", "type": "cdlc" }
+]
+```
 
-Pull requests welcome. Please fork the project and submit a merge request to the `dev` branch.
+## Logs
 
+- All scripts write to `/logs/` with timestamped filenames.
+- `log_maintenance.py` generates a summary in `latest_log_summary.txt`.
+
+## Security Notes
+
+- Only users with access to `scripts/` can run automation.
+- `self_check.py` validates before modification scripts are executed.
+- `mod_diff.py` confirms before deleting files.
+
+## Version
+
+**v1.1** – Includes all Phase 2 features.
